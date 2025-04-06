@@ -1,0 +1,17 @@
+h1{
+    text-align: center;
+    padding-left: 100px;
+    background-color: rgb(155, 81, 225);
+    height: auto;
+}
+h2{
+    text-align: center;
+    background-color: rgb(187, 150, 211);
+    border: 2px;
+}
+#Predicted{
+    position: relative;
+    left: calc(50% - 150px);
+    margin-top: 30px;
+    
+}

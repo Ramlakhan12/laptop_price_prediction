@@ -1,0 +1,141 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div>
+    <div >
+        <h1 style=" padding-top: 20px; padding-bottom: 20px;">Laptop Price Prediction</h1>
+        <form method="post">
+          {% csrf_token %}
+    <div class="form-row">   
+       <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect1"><b>Company</b></label>
+        <select class="form-control" id="exampleFormControlSelect1" name="Company">
+          <option value="">-- Select Company --</option>
+          <option value="Apple">Apple</option>
+          <option value="HP">HP</option>
+          <option value="Acer">Acer</option>
+          <option value="Asus">Asus</option>
+          <option value="Dell">Dell</option>
+          <option value="Lenovo">Lenovo</option>
+          <option value="Chuwi">Chuwi</option>
+          <option value="MSI">MSI</option>
+          <option value="Microsoft">Microsoft</option>
+          <option value="Toshiba">Toshiba</option>
+          <option value="Huawei">Huawei</option>
+          <option value="Xiaomi">Xiaomi</option>
+          <option value="Vero">Vero</option>
+          <option value="Razer">Razer</option>
+          <option value="Mediacom">Mediacom</option>
+          <option value="Samsung">Samsung</option>
+          <option value="Google">Google</option>
+          <option value="Fujitsu">Fujitsu</option>
+          <option value="LG">LG</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect1"><b>Memory</b></label>
+        <select class="form-control" name="Memory">
+          <option value="">-- Select Memory --</option>
+          {% for ram in memory_list %}
+            <option value="{{ ram }}">{{ ram }} GB</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect1"><b>Storage</b></label>
+        <select class="form-control" name="Storage">
+          <option value="">-- Select Storage --</option>
+          {% for storage in storage_list %}
+            <option value="{{ storage }}">{{ storage }} GB</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect1"><b>Brand</b></label>
+        <select class="form-control" id="exampleFormControlSelect1" name="Brand">
+          <option>-- Select Brand --</option>
+          <option>Intel</option>
+          <option>AMD</option>
+          <option>Samsung</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect1"><b>Inches</b></label>
+      <select class="form-control" id="exampleFormControlSelect2" name="Inches">
+        <option value="">-- Select Screen Size --</option>
+        <option value="13.3">13.3"</option>
+        <option value="15.6">15.6"</option>
+        <option value="15.4">15.4"</option>
+        <option value="14.0">14.0"</option>
+        <option value="12.0">12.0"</option>
+        <option value="11.6">11.6"</option>
+        <option value="17.3">17.3"</option>
+        <option value="10.1">10.1"</option>
+        <option value="13.5">13.5"</option>
+        <option value="12.5">12.5"</option>
+        <option value="13.0">13.0"</option>
+        <option value="18.4">18.4"</option>
+        <option value="13.9">13.9"</option>
+        <option value="12.3">12.3"</option>
+        <option value="17.0">17.0"</option>
+        <option value="15.0">15.0"</option>
+        <option value="14.1">14.1"</option>
+        <option value="11.3">11.3"</option>
+      </select>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect1"><b>Core Type</b></label>
+        <select class="form-control" id="coreType" name="core_type">
+          <option value="">-- Select Core Type --</option>
+          <option value="i7">i7</option>
+          <option value="i3">i3</option>
+          <option value="i5">i5</option>
+          <option value="Celeron">Celeron</option>
+          <option value="Pentium">Pentium</option>
+          <option value="Atom">Atom</option>
+          <option value="Others">Others</option>
+          <option value="A10">A10</option>
+          <option value="A12">A12</option>
+          <option value="A6">A6</option>
+          <option value="A9">A9</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect1"><b>Frequency (GHz)</b></label>
+        <select class="form-control" name="Frequency">
+          <option value="">-- Select HTz --</option>
+          {% for hz in Heartz %}
+            <option value="{{ hz }}">{{ hz }} GHz</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect1"><b>Storage Type</b></label>
+        <select class="form-control" name="Storage_type">
+          <option value="">-- Select Storage_type --</option>
+          {% for storage_ty in storage_type %}
+            <option value="{{ storage_ty }}">{{ storage_ty }} </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <label for="exampleFormControlSelect1"><b>Weight</b></label>
+        <input type="text" class="form-control" name="Weight">
+      </div>
+    </div>  
+   
+     <br>
+     <br>
+     <br>
+      <button type="submit" class="btn btn-primary btn-lg btn-block">Block level button</button>
+        </form>
+    </div>
+    <h2 style="margin-top: 15px;">Predicted Laptop Price</h2>
+    <div style="border: 2px solid black; height: 90px; width: 300px;" id="Predicted" name="Predicted">
+      <span style="color: green; margin-right: 15px ;font-size: 20px; font-weight: bold;">
+        ₹{{ prediction }}
+      </span>
+    </div>
+</div>
+{% endblock %}

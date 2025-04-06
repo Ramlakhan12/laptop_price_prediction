@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Virtual Environment
+venv/
+.env/
+.env.bak
+.venv/
+*.env
+
+# Django Migrations (optional - remove if you want to keep them in git)
+**/migrations/
+!*/migrations/__init__.py
+
+# Django DB and Logs
+db.sqlite3
+*.log
+
+# Static and Media
+staticfiles/
+media/
+
+# VSCode or PyCharm or other IDE settings
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Compiled Models / Pickle Files
+*.h5
+*.hdf5
+*.pkl
+*.joblib
+*.model
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Cache and temp files
+*.bak
+*.tmp
+*.swp
+
+
